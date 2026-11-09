@@ -13,15 +13,27 @@ document.querySelector(".dialog-close").addEventListener("click", () => dialog.c
 
 purchaseForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = new FormData(purchaseForm);
-  const plan = selectedPlan.textContent;
-  const subject = encodeURIComponent(`Demande d'accès — ${plan}`);
-  const body = encodeURIComponent(
-    `Bonjour,\n\nJe souhaite obtenir : ${plan}.\nMon contact : ${data.get("contact")}\n\n${data.get("message") || ""}`,
-  );
-  window.location.href = `mailto:contact@ibanfvl-buyer.example?subject=${subject}&body=${body}`;
-  dialog.close();
+  submitAccessRequest(new FormData(purchaseForm)).catch((error) => {
+    console.error(error);
+    alert("Impossible d’envoyer ta demande pour le moment. Réessaie plus tard ou contacte-moi sur Discord.");
+  });
 });
+
+async function submitAccessRequest(data) {
+  const response = await fetch("/api/access-requests", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      plan: selectedPlan.textContent.startsWith("Lifetime") ? "Lifetime" : "Mensuel",
+      contact: data.get("contact"),
+      message: data.get("message"),
+    }),
+  });
+  if (!response.ok) throw new Error("Access request failed.");
+  purchaseForm.reset();
+  dialog.close();
+  alert("Demande envoyée. Je te recontacterai avec les instructions d’accès.");
+}
 
 document.querySelectorAll("[data-gallery-input]").forEach((input) => {
   input.addEventListener("change", () => {

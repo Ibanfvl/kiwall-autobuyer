@@ -20,3 +20,5 @@ Le formulaire prépare un email ; il ne collecte ni ne traite de paiement.
 4. Redéploie le projet.
 
 La clé `SUPABASE_SERVICE_ROLE_KEY` doit rester uniquement dans les variables serveur Vercel. La route `/api/reviews` enregistre et liste les avis publiquement ; aucune modération n’est activée.
+
+Les demandes d’accès sont enregistrées dans la table `access_requests` de Supabase. Exécute à nouveau [supabase-schema.sql](./supabase-schema.sql) après la mise à jour pour créer cette table.

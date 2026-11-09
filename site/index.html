@@ -106,7 +106,7 @@
           <form class="review-form" id="review-form">
             <h3>Publier un avis</h3>
             <label>Ton pseudo<input required name="name" maxlength="40" placeholder="ex. Ibanfvl" /></label>
-            <label>Ta formule<select required name="plan"><option value="">Choisir une formule</option><option>Starter</option><option>Pro</option><option>Lifetime</option></select></label>
+            <label>Ta formule<select required name="plan"><option value="">Choisir une formule</option><option>Lifetime</option><option>Mensuel</option></select></label>
             <label>Ta note<select required name="rating"><option value="">Note</option><option value="5">★★★★★ — 5/5</option><option value="4">★★★★☆ — 4/5</option><option value="3">★★★☆☆ — 3/5</option><option value="2">★★☆☆☆ — 2/5</option><option value="1">★☆☆☆☆ — 1/5</option></select></label>
             <label>Ton expérience<textarea required name="message" maxlength="280" rows="4" placeholder="Décris ton expérience réelle..."></textarea></label>
             <button class="button button--primary" type="submit">Ajouter mon avis <span>→</span></button>
@@ -131,16 +131,16 @@
           <details><summary>Comment recevoir mon accès ? <span>+</span></summary><p>Après validation manuelle de ta commande, tu reçois les instructions d’installation par le canal de contact indiqué dans le formulaire.</p></details>
           <details><summary>Comment fonctionne la connexion FUTBIN ? <span>+</span></summary><p>Le bot consulte FUTBIN depuis ta session navigateur et actualise progressivement les prix suivis. Une connexion active et l’accès à FUTBIN sont nécessaires ; les données peuvent être retardées ou indisponibles en cas de blocage du site.</p></details>
           <details><summary>Est-ce compatible avec mon navigateur ? <span>+</span></summary><p>Le script est prévu pour un navigateur de bureau compatible avec Tampermonkey. Les détails d’installation sont fournis avec l’accès.</p></details>
-          <details><summary>Quel support est inclus ? <span>+</span></summary><p>Chaque formule inclut une aide à l’installation. La formule Pro ajoute un support prioritaire via ton canal communautaire.</p></details>
+          <details><summary>Quel support est inclus ? <span>+</span></summary><p>Chaque formule inclut une aide à l’installation. Pour toute question, contacte-moi directement sur <a href="https://discordapp.com/users/898995160132755466" target="_blank" rel="noopener noreferrer">Discord</a>.</p></details>
         </div>
       </section>
     </main>
 
-    <footer class="site-footer section-shell"><a class="brand" href="#accueil"><span class="brand-mark">IB</span><span>IBANFVL <strong>BUYER</strong></span></a><span>© 2026 Ibanfvl Buyer</span><span>Fait pour les passionnés du marché.</span></footer>
+    <footer class="site-footer section-shell"><a class="brand" href="#accueil"><span class="brand-mark">IB</span><span>IBANFVL <strong>BUYER</strong></span></a><span>© 2026 Ibanfvl Buyer</span><a class="support-link" href="https://discordapp.com/users/898995160132755466" target="_blank" rel="noopener noreferrer">Une question ? Me contacter sur Discord ↗</a></footer>
 
     <dialog class="purchase-dialog" id="purchase-dialog">
       <button class="dialog-close" aria-label="Fermer">×</button>
-      <div class="eyebrow">Demande d’accès</div><h2>Tu as choisi <em id="selected-plan">Pro</em>.</h2><p>Laisse tes coordonnées. Le bouton ouvre ton client mail avec une demande pré-remplie.</p>
+      <div class="eyebrow">Demande d’accès</div><h2>Tu as choisi <em id="selected-plan">Pro</em>.</h2><p>Laisse tes coordonnées. Le bouton ouvre ton client mail avec une demande pré-remplie. Pour une question rapide, <a href="https://discordapp.com/users/898995160132755466" target="_blank" rel="noopener noreferrer">contacte-moi sur Discord</a>.</p>
       <form id="purchase-form"><label>Ton pseudo ou email<input required name="contact" type="text" placeholder="ex. discord: ibanfvl" /></label><label>Message (optionnel)<textarea name="message" rows="3" placeholder="Une question avant de commencer ?"></textarea></label><button class="button button--primary" type="submit">Préparer ma demande <span>→</span></button></form>
     </dialog>
     <script src="./app.js"></script>
