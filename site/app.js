@@ -36,10 +36,8 @@ document.querySelectorAll("[data-gallery-input]").forEach((input) => {
 
 const reviewForm = document.querySelector("#review-form");
 const reviewsList = document.querySelector("#reviews-list");
-const reviewsStorageKey = "ibanfvl-buyer-reviews";
 
-function renderReviews() {
-  const reviews = JSON.parse(localStorage.getItem(reviewsStorageKey) || "[]");
+function renderReviews(reviews) {
   reviewsList.innerHTML = "";
   if (!reviews.length) {
     reviewsList.innerHTML = '<div class="empty-reviews">Les premiers avis apparaîtront ici.</div>';
@@ -72,17 +70,36 @@ function renderReviews() {
 
 reviewForm.addEventListener("submit", (event) => {
   event.preventDefault();
-  const data = new FormData(reviewForm);
-  const reviews = JSON.parse(localStorage.getItem(reviewsStorageKey) || "[]");
-  reviews.unshift({
+  submitReview(new FormData(reviewForm)).catch((error) => {
+    console.error(error);
+    reviewsList.innerHTML = '<div class="empty-reviews">Impossible d’enregistrer ton avis pour le moment.</div>';
+  });
+});
+
+async function loadReviews() {
+  const response = await fetch("/api/reviews");
+  if (!response.ok) throw new Error("Impossible de charger les avis.");
+  renderReviews(await response.json());
+}
+
+async function submitReview(data) {
+  const review = {
     name: data.get("name"),
     plan: data.get("plan"),
     rating: Number(data.get("rating")),
     message: data.get("message"),
+  };
+  const response = await fetch("/api/reviews", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(review),
   });
-  localStorage.setItem(reviewsStorageKey, JSON.stringify(reviews));
+  if (!response.ok) throw new Error("Impossible d’enregistrer ton avis.");
   reviewForm.reset();
-  renderReviews();
-});
+  await loadReviews();
+}
 
-renderReviews();
+loadReviews().catch((error) => {
+  console.error(error);
+  reviewsList.innerHTML = '<div class="empty-reviews">Les avis sont temporairement indisponibles.</div>';
+});

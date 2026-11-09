@@ -10,4 +10,13 @@ Site statique indépendant du script Tampermonkey. Ouvre `index.html` directemen
 - Les couleurs et la mise en page sont centralisées dans `styles.css`.
 - La vitrine présente la connexion FUTBIN comme une actualisation en direct pendant la session. Le script dépend toutefois de l'accès au site FUTBIN et ses données peuvent être retardées ou bloquées.
 
-Le formulaire prépare un email ; il ne collecte ni ne traite de paiement. Branche un prestataire de paiement et un backend avant une utilisation commerciale réelle.
+Le formulaire prépare un email ; il ne collecte ni ne traite de paiement.
+
+## Backend des avis avec Vercel et Supabase
+
+1. Crée un projet Supabase et exécute [supabase-schema.sql](./supabase-schema.sql) dans le SQL Editor.
+2. Déploie le dossier `site` sur Vercel.
+3. Configure dans Vercel les variables `SUPABASE_URL` et `SUPABASE_SERVICE_ROLE_KEY`.
+4. Redéploie le projet.
+
+La clé `SUPABASE_SERVICE_ROLE_KEY` doit rester uniquement dans les variables serveur Vercel. La route `/api/reviews` enregistre et liste les avis publiquement ; aucune modération n’est activée.
