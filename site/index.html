@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Ibanfvl Buyer — l'outil premium pour mieux piloter son marché Ultimate Team." />
-    <title>Ibanfvl Buyer — Automatise ton marché</title>
+    <meta name="description" content="Ibanfvl Buyer — l'outil premium pour mieux piloter son marché FC 27 Ultimate Team." />
+    <title>Ibanfvl Buyer — Ton marché FC 27 sous contrôle</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -32,10 +32,10 @@
     <main>
       <section class="hero section-shell" id="accueil">
         <div class="hero-copy">
-          <div class="eyebrow"><span class="status-dot"></span> Disponible pour FC Ultimate Team</div>
-          <h1>Le marché.<br /><em>En mode avantage.</em></h1>
+          <div class="eyebrow"><span class="status-dot"></span> FC 27 Ultimate Team</div>
+          <h1>Le marché FC 27.<br /><em>En mode avantage.</em></h1>
           <p class="hero-lead">
-            Connecté à FUTBIN en continu, le bot repère les opportunités, actualise les prix et t’aide à garder une longueur d’avance.
+            Repère les opportunités, compare les prix FUTBIN et construis ton équipe avec une longueur d’avance sur le marché.
           </p>
           <div class="hero-actions">
             <a class="button button--primary" href="#tarifs">Voir les accès <span>→</span></a>
@@ -51,9 +51,13 @@
             <p><strong>Rejoins les utilisateurs</strong><br />qui optimisent chaque session.</p>
           </div>
         </div>
-        <div class="hero-visual" aria-label="Aperçu du tableau de bord">
+        <div class="hero-visual" aria-label="Aperçu du marché FC 27 et du tableau de bord">
           <div class="visual-orbit orbit-one"></div>
           <div class="visual-orbit orbit-two"></div>
+          <div class="fc27-showcase">
+            <img src="./fc27-market-showcase.png" alt="Carte joueur et marché FC 27 avec Ibanfvl Buyer" />
+            <span class="fc27-showcase-label">FC 27<br /><strong>MARKET HUB</strong></span>
+          </div>
           <div class="dashboard-card">
             <div class="dashboard-top"><span class="live-pill"><i></i> FUTBIN CONNECTÉ EN DIRECT</span><span>● ● ●</span></div>
             <div class="dashboard-title"><span>Sniper dashboard</span><strong>+ 42 580</strong></div>
@@ -140,8 +144,8 @@
 
     <dialog class="purchase-dialog" id="purchase-dialog">
       <button class="dialog-close" aria-label="Fermer">×</button>
-      <div class="eyebrow">Demande d’accès</div><h2>Tu as choisi <em id="selected-plan">Pro</em>.</h2><p>Laisse tes coordonnées. Le bouton ouvre ton client mail avec une demande pré-remplie. Pour une question rapide, <a href="https://discordapp.com/users/898995160132755466" target="_blank" rel="noopener noreferrer">contacte-moi sur Discord</a>.</p>
-      <form id="purchase-form"><label>Ton pseudo ou email<input required name="contact" type="text" placeholder="ex. discord: ibanfvl" /></label><label>Message (optionnel)<textarea name="message" rows="3" placeholder="Une question avant de commencer ?"></textarea></label><button class="button button--primary" type="submit">Préparer ma demande <span>→</span></button></form>
+      <div class="eyebrow">Demande d’accès</div><h2>Tu as choisi <em id="selected-plan">Pro</em>.</h2><p>Indique uniquement ton pseudo Discord pour que je puisse te recontacter. Pour une question rapide, <a href="https://discordapp.com/users/898995160132755466" target="_blank" rel="noopener noreferrer">contacte-moi sur Discord</a>.</p>
+      <form id="purchase-form"><label>Ton pseudo Discord<input required name="contact" type="text" maxlength="40" placeholder="ex. ibanfvl" /></label><label>Message (optionnel)<textarea name="message" rows="3" placeholder="Une question avant de commencer ?"></textarea></label><button class="button button--primary" type="submit">Envoyer ma demande <span>→</span></button></form>
     </dialog>
     <script src="./app.js"></script>
   </body>

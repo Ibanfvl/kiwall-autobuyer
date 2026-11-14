@@ -5,12 +5,12 @@ Site statique indépendant du script Tampermonkey. Ouvre `index.html` directemen
 ## Personnalisation
 
 - Remplace les textes et tarifs dans `index.html`.
-- Remplace `contact@ibanfvl-buyer.example` dans `app.js` par une adresse réelle avant la mise en ligne.
+- Le formulaire de demande d’accès demande uniquement un pseudo Discord pour pouvoir recontacter l’utilisateur.
 - Les trois emplacements de la section « Ta vitrine » acceptent une image depuis le navigateur pour prévisualisation. Pour des images permanentes, ajoute tes fichiers au projet puis remplace les blocs correspondants par des balises `<img src="...">`.
 - Les couleurs et la mise en page sont centralisées dans `styles.css`.
 - La vitrine présente la connexion FUTBIN comme une actualisation en direct pendant la session. Le script dépend toutefois de l'accès au site FUTBIN et ses données peuvent être retardées ou bloquées.
 
-Le formulaire prépare un email ; il ne collecte ni ne traite de paiement.
+Le formulaire enregistre une demande d’accès avec le pseudo Discord fourni ; il ne collecte ni ne traite de paiement.
 
 ## Backend des avis avec Vercel et Supabase
 
